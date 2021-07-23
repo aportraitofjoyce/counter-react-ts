@@ -8,6 +8,10 @@ body {
 }
 
 .wrapper {
+    display: flex;
+    gap: 40px;
+}
+.container {
     text-align: center;
     border: 4px solid #ffc443;
     border-radius: 8px;
@@ -15,6 +19,8 @@ body {
     flex-direction: column;
     background-color: #4d3787;
 }
+
+
 
 .display {
     padding: 24px;
@@ -28,22 +34,6 @@ body {
     font-weight: bold;
 }
 
-.resultOne {
-    color: rgba(255, 0, 0, 0.15);
-}
-
-.resultTwo {
-    color: rgba(255, 0, 0, 0.3);
-}
-
-.resultThree {
-    color: rgba(255, 0, 0, 0.55);
-}
-
-.resultFour {
-    color: rgba(255, 0, 0, 0.7);
-}
-
 .maxResult {
     color: rgba(255, 0, 0, 1);
 }
@@ -53,9 +43,10 @@ body {
     border-radius: 8px;
     display: flex;
     gap: 24px;
+    justify-content: center;
 }
 
-.wrapper button {
+.container button {
     padding: 12px 24px;
     border: none;
     border-radius: 4px;
@@ -65,12 +56,26 @@ body {
     background-color: #ffc443;
 }
 
-.wrapper button:hover {
+.container button:hover {
     background-color: #ffab00;
 }
 
-.wrapper button:disabled {
+.container button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     background-color: #ffc443;
+}
+
+input {
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 8px;
+}
+.error {
+    border: 2px solid red;
+}
+
+.settingsInputContainer {
+    padding: 24px 24px 0 24px;
 }
