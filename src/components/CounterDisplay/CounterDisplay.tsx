@@ -7,7 +7,8 @@ type CounterDisplayPropsType = {
     maxValue: number
     minValue: number
     setCounter: (counter: number) => void
-    validation: () => boolean | undefined
+    inputValidation: () => boolean | undefined
+    settings: boolean
 }
 
 export const CounterDisplay: React.FC<CounterDisplayPropsType> = (props) => {
@@ -19,12 +20,25 @@ export const CounterDisplay: React.FC<CounterDisplayPropsType> = (props) => {
         props.setCounter(props.minValue)
     }
 
+    const increaseButtonDisable = () => props.counter === props.maxValue || !props.settings
+    const resetButtonDisable = () => props.counter === props.minValue || !props.settings
+
     return (
         <div className="container">
-            <Display counter={props.counter} maxValue={props.maxValue} validation={props.validation} minValue={props.minValue}/>
+            <Display counter={props.counter}
+                     maxValue={props.maxValue}
+                     inputValidation={props.inputValidation}
+                     minValue={props.minValue}
+                     settings={props.settings}
+            />
+
             <div className={'buttons'}>
-                <Button name={'Increase'} callback={counterIncrease} disabled={props.counter === props.maxValue}/>
-                <Button name={'Reset'} callback={counterReset} disabled={props.counter === props.minValue}/>
+                <Button name={'Increase'}
+                        onClick={counterIncrease}
+                        disabled={increaseButtonDisable()}/>
+                <Button name={'Reset'}
+                        onClick={counterReset}
+                        disabled={resetButtonDisable()}/>
             </div>
         </div>
     )

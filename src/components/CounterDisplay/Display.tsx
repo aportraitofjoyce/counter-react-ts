@@ -4,7 +4,8 @@ type DisplayPropsType = {
     counter: number
     maxValue: number
     minValue: number
-    validation: () => boolean | undefined
+    inputValidation: () => boolean | undefined
+    settings: boolean
 }
 
 export const Display = (props: DisplayPropsType) => {
@@ -12,9 +13,10 @@ export const Display = (props: DisplayPropsType) => {
 
     return (
         <div className={'display'}>
-            {props.validation() ?
-                <span className={'result'}>Incorrect value!</span> :
-                <span className={displayClassName}>{props.counter}</span>
+            {
+                props.inputValidation() ? <span className={'result maxResult'}>Incorrect value!</span> :
+                    !props.settings ? <span className={'result'}>Enter values and press 'Set'</span> :
+                        <span className={displayClassName}>{props.counter}</span>
             }
         </div>
     )
