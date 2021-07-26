@@ -20,8 +20,8 @@ export const CounterDisplay: React.FC<CounterDisplayPropsType> = (props) => {
         props.setCounter(props.minValue)
     }
 
-    const increaseButtonDisable = () => props.counter === props.maxValue || !props.settings
-    const resetButtonDisable = () => props.counter === props.minValue || !props.settings
+    const increaseButtonDisable = () => props.counter === props.maxValue || !props.settings || props.inputValidation()
+    const resetButtonDisable = () => props.counter === props.minValue || !props.settings || props.inputValidation()
 
     return (
         <div className="container">
