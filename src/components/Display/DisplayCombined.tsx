@@ -24,7 +24,7 @@ export const DisplayCombined: React.FC<CounterDisplayPropsType> = (props) => {
         <div className="container">
             <div className={'display'}>
                 {
-                    props.inputValidation ? <span className={'result displayText'}> Incorrect value! </span> :
+                    props.inputValidation ? <span className={'result displayTextError'}> Incorrect value! </span> :
                         !props.settings ? <span className={'result displayText'}> Enter values and press 'Set' </span> :
                             <span className={displayClassName}>{props.counter}</span>
                 }

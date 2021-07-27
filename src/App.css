@@ -28,10 +28,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
     margin: 24px;
     border-radius: 8px;
     background-color: #ffc443;
+    height: 120px;
 }
 
 .result {
@@ -45,6 +45,11 @@ body {
 
 .displayText {
     font-size: 24px;
+}
+
+.displayTextError {
+    font-size: 24px;
+    color: rgba(255, 0, 0, 1);
 }
 
 .buttons {
@@ -103,6 +108,7 @@ input {
     border: 2px solid transparent;
     border-radius: 4px;
     padding: 8px;
+    height: fit-content;
     flex-grow: 1;
 }
 
