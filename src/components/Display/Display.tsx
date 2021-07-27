@@ -1,5 +1,4 @@
-import {Display} from "./Display";
-import {Button} from "../Button";
+import {Button} from "../Button/Button";
 import React from "react";
 
 type CounterDisplayPropsType = {
@@ -11,21 +10,22 @@ type CounterDisplayPropsType = {
     settings: boolean
 }
 
-export const CounterDisplay: React.FC<CounterDisplayPropsType> = (props) => {
+export const Display: React.FC<CounterDisplayPropsType> = (props) => {
     const counterIncrease = () => props.counter < props.maxValue && props.setCounter(props.counter + 1)
     const counterReset = () => props.setCounter(props.minValue)
 
     const increaseButtonDisable = props.counter === props.maxValue || !props.settings || props.inputValidation
     const resetButtonDisable = props.counter === props.minValue || !props.settings || props.inputValidation
 
+    const displayClassName = props.counter === props.maxValue ? 'result maxResult' : 'result'
+
     return (
         <div className="container">
-            <Display counter={props.counter}
-                     maxValue={props.maxValue}
-                     inputValidation={props.inputValidation}
-                     minValue={props.minValue}
-                     settings={props.settings}
-            />
+            <div className={'display'}>
+                {props.inputValidation ? <span className={'result maxResult'}> Incorrect value! </span> :
+                    !props.settings ? <span className={'result'}> Enter values and press 'Set' </span> :
+                        <span className={displayClassName}>{props.counter}</span>}
+            </div>
 
             <div className={'buttons'}>
                 <Button name={'Increase'}

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {CounterSettings} from "./components/CounterSettings/CounterSettings";
-import {CounterDisplay} from "./components/CounterDisplay/CounterDisplay";
+import {Settings} from "./components/Settings/Settings";
+import {Display} from "./components/Display/Display";
 
 export const Counter = () => {
     const [minValue, setMinValue] = useState<number>(0)
@@ -38,22 +38,22 @@ export const Counter = () => {
 
     return (
         <div className={'wrapper'}>
-            <CounterSettings maxValue={maxValue}
-                             minValue={minValue}
-                             setMinValue={setMinValue}
-                             setMaxValue={setMaxValue}
-                             setCounter={setCounter}
-                             inputValidation={inputValidation}
-                             settings={settings}
-                             setSettings={setSettings}
+            <Settings maxValue={maxValue}
+                      minValue={minValue}
+                      setMinValue={setMinValue}
+                      setMaxValue={setMaxValue}
+                      setCounter={setCounter}
+                      inputValidation={inputValidation}
+                      settings={settings}
+                      setSettings={setSettings}
             />
 
-            <CounterDisplay counter={counter}
-                            maxValue={maxValue}
-                            minValue={minValue}
-                            setCounter={setCounter}
-                            inputValidation={inputValidation}
-                            settings={settings}
+            <Display counter={counter}
+                     maxValue={maxValue}
+                     minValue={minValue}
+                     setCounter={setCounter}
+                     inputValidation={inputValidation}
+                     settings={settings}
             />
         </div>
     );

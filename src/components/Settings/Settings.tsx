@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from "react";
-import {Button} from "../Button";
-import {Input} from "../Input";
+import {Button} from "../Button/Button";
+import {Input} from "../Input/Input";
 
 type CounterSettingsPropsType = {
     minValue: number
@@ -13,7 +13,7 @@ type CounterSettingsPropsType = {
     setSettings: (settings: boolean) => void
 }
 
-export const CounterSettings: React.FC<CounterSettingsPropsType> = (props) => {
+export const Settings: React.FC<CounterSettingsPropsType> = (props) => {
     const declareMinValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.setMinValue(Number(e.currentTarget.value))
         props.setSettings(false)
