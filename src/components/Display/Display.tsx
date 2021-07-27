@@ -22,9 +22,11 @@ export const Display: React.FC<CounterDisplayPropsType> = (props) => {
     return (
         <div className="container">
             <div className={'display'}>
-                {props.inputValidation ? <span className={'result maxResult'}> Incorrect value! </span> :
-                    !props.settings ? <span className={'result'}> Enter values and press 'Set' </span> :
-                        <span className={displayClassName}>{props.counter}</span>}
+                {
+                    props.inputValidation ? <span className={'result displayText'}> Incorrect value! </span> :
+                        !props.settings ? <span className={'result displayText'}> Enter values and press 'Set' </span> :
+                            <span className={displayClassName}>{props.counter}</span>
+                }
             </div>
 
             <div className={'buttons'}>

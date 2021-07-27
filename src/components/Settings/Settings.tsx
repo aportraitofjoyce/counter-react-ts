@@ -32,20 +32,20 @@ export const Settings: React.FC<CounterSettingsPropsType> = (props) => {
 
     return (
         <div className='container'>
-            <div className={'settingsInputContainer'}>
-                <span>Min value</span>
-                <Input value={props.minValue}
-                       onChange={declareMinValue}
-                       error={props.inputValidation}/>
+            <div className={'settingsInputWrapper'}>
+                <div className={'settingsInputContainer'}>
+                    <span>Min value</span>
+                    <Input value={props.minValue}
+                           onChange={declareMinValue}
+                           error={props.inputValidation}/>
+                </div>
 
-            </div>
-
-            <div className={'settingsInputContainer'}>
-                <span>Max value</span>
-                <Input value={props.maxValue}
-                       onChange={declareMaxValue}
-                       error={props.inputValidation}/>
-
+                <div className={'settingsInputContainer'}>
+                    <span>Max value</span>
+                    <Input value={props.maxValue}
+                           onChange={declareMaxValue}
+                           error={props.inputValidation}/>
+                </div>
             </div>
 
             <div className={'buttons'}>
