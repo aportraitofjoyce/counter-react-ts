@@ -34,16 +34,7 @@ export const Counter = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
     }, [counter, minValue, maxValue])
 
-    const inputValidation = () => {
-        if (minValue >= maxValue) {
-            setSettings(true)
-            return true
-        }
-        if (minValue < 0 || maxValue < 0) {
-            setSettings(true)
-            return true
-        }
-    }
+    const inputValidation = minValue >= maxValue || minValue < 0 || maxValue < 0
 
     return (
         <div className={'wrapper'}>

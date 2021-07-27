@@ -8,13 +8,12 @@ type CounterSettingsPropsType = {
     setMinValue: (minValue: number) => void
     setMaxValue: (maxValue: number) => void
     setCounter: (counter: number) => void
-    inputValidation: () => boolean | undefined
+    inputValidation: boolean | undefined
     settings: boolean
     setSettings: (settings: boolean) => void
 }
 
 export const CounterSettings: React.FC<CounterSettingsPropsType> = (props) => {
-
     const declareMinValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.setMinValue(Number(e.currentTarget.value))
         props.setSettings(false)
@@ -37,7 +36,7 @@ export const CounterSettings: React.FC<CounterSettingsPropsType> = (props) => {
                 <span>Min value</span>
                 <Input value={props.minValue}
                        onChange={declareMinValue}
-                       error={props.inputValidation()}/>
+                       error={props.inputValidation}/>
 
             </div>
 
@@ -45,13 +44,13 @@ export const CounterSettings: React.FC<CounterSettingsPropsType> = (props) => {
                 <span>Max value</span>
                 <Input value={props.maxValue}
                        onChange={declareMaxValue}
-                       error={props.inputValidation()}/>
+                       error={props.inputValidation}/>
 
             </div>
 
             <div className={'buttons'}>
                 <Button name={'Set'} onClick={setMinValueToCounter}
-                        disabled={props.settings}/>
+                        disabled={props.settings || props.inputValidation}/>
             </div>
         </div>
     )
