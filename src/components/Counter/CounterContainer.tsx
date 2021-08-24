@@ -7,17 +7,17 @@ import {setMaxValueAC, setMinValueAC} from '../../store/actions/counter-values-a
 
 export const CounterContainer = () => {
     const [settings, setSettings] = useState(true)
-    const counter = useSelector((state: StateType) => state.counter)
-    const counterValues = useSelector((state: StateType) => state.counterValues)
+    const {counterValue} = useSelector((state: StateType) => state.counter)
+    const {minValue, maxValue} = useSelector((state: StateType) => state.counterValues)
 
     const dispatch = useDispatch()
 
     const counterIncrease = () => {
-        counter.counterValue < counterValues.maxValue && dispatch(counterIncreaseAC())
+        counterValue < maxValue && dispatch(counterIncreaseAC())
     }
 
     const counterReset = () => {
-        dispatch(counterResetAC(counterValues.minValue))
+        dispatch(counterResetAC(minValue))
     }
 
     const setMinValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,15 +31,15 @@ export const CounterContainer = () => {
     }
 
     const setNewMinCounterValue = () => {
-        dispatch(setNewMinCounterValueAC(counterValues.minValue))
+        dispatch(setNewMinCounterValueAC(minValue))
         setSettings(true)
     }
 
-    const inputValidation = counterValues.minValue >= counterValues.maxValue || counterValues.minValue < 0 || counterValues.maxValue < 0
+    const inputValidation = minValue >= maxValue || minValue < 0 || maxValue < 0
 
     const buttonsValidation = {
-        increaseButtonDisable: counter.counterValue === counterValues.maxValue || !settings || inputValidation,
-        resetButtonDisable: counter.counterValue === counterValues.minValue || !settings || inputValidation,
+        increaseButtonDisable: counterValue === maxValue || !settings || inputValidation,
+        resetButtonDisable: counterValue === minValue || !settings || inputValidation,
         setButtonDisable: settings || inputValidation
     }
 
@@ -70,9 +70,9 @@ export const CounterContainer = () => {
 
     return (
         <>
-            <Counter counterValue={counter.counterValue}
-                     minValue={counterValues.minValue}
-                     maxValue={counterValues.maxValue}
+            <Counter counterValue={counterValue}
+                     minValue={minValue}
+                     maxValue={maxValue}
                      settings={settings}
                      counterIncrease={counterIncrease}
                      counterReset={counterReset}
