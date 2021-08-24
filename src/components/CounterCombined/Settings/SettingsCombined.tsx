@@ -1,7 +1,7 @@
-import React, {ChangeEvent} from "react";
-import {Link} from "react-router-dom";
-import {Button} from "../Button/Button";
-import {Input} from "../Input/Input";
+import React, {ChangeEvent} from 'react'
+import {Link} from 'react-router-dom'
+import {Button} from '../../Button/Button'
+import {Input} from '../../Input/Input'
 
 type CounterSettingsPropsType = {
     minValue: number
@@ -31,7 +31,7 @@ export const SettingsCombined: React.FC<CounterSettingsPropsType> = (props) => {
     }
 
     return (
-        <div className='container'>
+        <div className="container">
             <div className={'settingsInputWrapper'}>
                 <div className={'settingsInputContainer'}>
                     <span>Min value</span>

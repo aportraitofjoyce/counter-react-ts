@@ -1,5 +1,6 @@
-import {Button} from "../Button/Button";
-import React from "react";
+import {Button} from '../../Button/Button'
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 type CounterDisplayPropsType = {
     counter: number
@@ -10,7 +11,7 @@ type CounterDisplayPropsType = {
     settings: boolean
 }
 
-export const Display: React.FC<CounterDisplayPropsType> = (props) => {
+export const DisplayCombined: React.FC<CounterDisplayPropsType> = (props) => {
     const counterIncrease = () => props.counter < props.maxValue && props.setCounter(props.counter + 1)
     const counterReset = () => props.setCounter(props.minValue)
 
@@ -36,6 +37,10 @@ export const Display: React.FC<CounterDisplayPropsType> = (props) => {
                 <Button name={'Reset'}
                         onClick={counterReset}
                         disabled={resetButtonDisable}/>
+
+                <Link to={'/settings'}>
+                    <Button name={'Set'}/>
+                </Link>
             </div>
         </div>
     )

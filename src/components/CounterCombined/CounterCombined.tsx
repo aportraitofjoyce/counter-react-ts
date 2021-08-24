@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
-import {HashRouter, Redirect, Route} from "react-router-dom";
-import {DisplayCombined} from "./components/Display/DisplayCombined";
-import {SettingsCombined} from "./components/Settings/SettingsCombined";
+import React, {useEffect, useState} from 'react'
+import '../../App.css'
+import {HashRouter, Redirect, Route} from 'react-router-dom'
+import {DisplayCombined} from './Display/DisplayCombined'
+import {SettingsCombined} from './Settings/SettingsCombined'
 
 export const CounterCombined = () => {
     const [minValue, setMinValue] = useState<number>(0)
@@ -59,5 +59,5 @@ export const CounterCombined = () => {
                 />}/>
             </HashRouter>
         </div>
-    );
-};
+    )
+}

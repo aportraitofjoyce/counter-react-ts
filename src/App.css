@@ -1,5 +1,5 @@
 body {
-    background-color: #333;
+    background-color: #282828;
     color: white;
     height: 100vh;
     display: flex;
@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #2f635e;
+    background-color: #333;
     margin: 24px;
     width: 480px;
     height: 256px;
