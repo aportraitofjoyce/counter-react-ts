@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {ChangeEvent} from 'react'
 import {Button} from '../../Button/Button'
 import {Input} from '../../Input/Input'
 
 type CounterSettingsPropsType = {
     minValue: number
     maxValue: number
-    setMinValue: any
-    setMaxValue: any
-    inputValidation: boolean | undefined
+    setMinValue: (e: ChangeEvent<HTMLInputElement>) => void
+    setMaxValue: (e: ChangeEvent<HTMLInputElement>) => void
+    inputValidation: boolean
     settings: boolean
-    setNewMinCounterValue: () => any
+    setNewMinCounterValue: () => void
     buttonsValidation: boolean
 }
 

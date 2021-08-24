@@ -5,11 +5,14 @@ type CounterDisplayPropsType = {
     counterValue: number
     maxValue: number
     minValue: number
-    inputValidation: boolean | undefined
+    inputValidation: boolean
     settings: boolean
-    counterIncrease: () => any
-    counterReset: () => any
-    buttonsValidation: { increaseButtonDisable: boolean, resetButtonDisable: boolean }
+    counterIncrease: () => void
+    counterReset: () => void
+    buttonsValidation: {
+        increaseButtonDisable: boolean
+        resetButtonDisable: boolean
+    }
 }
 
 export const Display: React.FC<CounterDisplayPropsType> = (props) => {
