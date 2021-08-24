@@ -14,7 +14,13 @@ type CounterPropsType = {
     setNewMinCounterValue: () => void
     counterIncrease: () => void
     counterReset: () => void
-    buttonsValidation: { increaseButtonDisable: boolean, resetButtonDisable: boolean }
+    buttonsValidation: buttonsValidationType
+}
+
+type buttonsValidationType = {
+    increaseButtonDisable: boolean
+    resetButtonDisable: boolean
+    setButtonDisable: boolean
 }
 
 export const Counter: React.FC<CounterPropsType> = (props) => {
@@ -26,6 +32,7 @@ export const Counter: React.FC<CounterPropsType> = (props) => {
                       setMinValue={props.setMinValue}
                       setMaxValue={props.setMaxValue}
                       setNewMinCounterValue={props.setNewMinCounterValue}
+                      buttonsValidation={props.buttonsValidation.setButtonDisable}
                       inputValidation={props.inputValidation}
             />
 

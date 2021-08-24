@@ -3,12 +3,12 @@ export const SET_MAX_VALUE = 'SET_MAX_VALUE'
 
 export const setMinValueAC = (minValue: number) => ({
     type: SET_MIN_VALUE,
-    minValue: minValue
+    payload: minValue
 }) as const
 
 export const setMaxValueAC = (maxValue: number) => ({
     type: SET_MAX_VALUE,
-    maxValue: maxValue
+    payload: maxValue
 }) as const
 
 

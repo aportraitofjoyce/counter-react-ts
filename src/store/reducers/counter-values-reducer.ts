@@ -8,10 +8,10 @@ const initialState = {
 export const counterValuesReducer = (state: InitialStateType = initialState, action: CounterValuesActionsType): InitialStateType => {
     switch (action.type) {
         case SET_MIN_VALUE:
-            return {...state, minValue: action.minValue}
+            return {...state, minValue: action.payload}
 
         case SET_MAX_VALUE:
-            return {...state, maxValue: action.maxValue}
+            return {...state, maxValue: action.payload}
 
         default:
             return state

@@ -39,9 +39,10 @@ export const CounterContainer = () => {
 
     const buttonsValidation = {
         increaseButtonDisable: counter.counterValue === counterValues.maxValue || !settings || inputValidation,
-        resetButtonDisable: counter.counterValue === counterValues.minValue || !settings || inputValidation
+        resetButtonDisable: counter.counterValue === counterValues.minValue || !settings || inputValidation,
+        setButtonDisable: settings || inputValidation
     }
-    
+
     /*useEffect(() => {
         const counterValueString = localStorage.getItem('counter')
         if (counterValueString) {

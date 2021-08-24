@@ -8,12 +8,12 @@ export const counterIncreaseAC = () => ({
 
 export const counterResetAC = (value: number) => ({
     type: COUNTER_RESET,
-    value: value
+    payload: value
 }) as const
 
 export const setNewMinCounterValueAC = (value: number) => ({
     type: SET_NEW_MIN_COUNTER_VALUE,
-    value: value
+    payload: value
 })
 
 export type CounterActionsType =

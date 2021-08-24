@@ -15,10 +15,10 @@ export const counterReducer = (state: InitialStateType = initialState, action: C
             return {...state, counterValue: state.counterValue + 1}
 
         case COUNTER_RESET:
-            return {...state, counterValue: action.value}
+            return {...state, counterValue: action.payload}
 
         case SET_NEW_MIN_COUNTER_VALUE:
-            return {...state, counterValue: action.value}
+            return {...state, counterValue: action.payload}
 
 
         default:

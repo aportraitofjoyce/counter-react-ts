@@ -10,6 +10,7 @@ type CounterSettingsPropsType = {
     inputValidation: boolean | undefined
     settings: boolean
     setNewMinCounterValue: () => any
+    buttonsValidation: boolean
 }
 
 export const Settings: React.FC<CounterSettingsPropsType> = (props) => {
@@ -33,7 +34,7 @@ export const Settings: React.FC<CounterSettingsPropsType> = (props) => {
 
             <div className={'buttons'}>
                 <Button name={'Set'} onClick={props.setNewMinCounterValue}
-                        disabled={props.settings || props.inputValidation}/>
+                        disabled={props.buttonsValidation}/>
             </div>
         </div>
     )
