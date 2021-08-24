@@ -3,6 +3,7 @@ import {counterReducer} from './reducers/counter-reducers/counter-reducer'
 import {counterValuesReducer} from './reducers/counter-reducers/counter-values-reducer'
 import {combinedCounterReducer} from './reducers/combined-counter-reducers/combined-counter-reducer'
 import {combinedCounterValuesReducer} from './reducers/combined-counter-reducers/combined-counter-values-reducer'
+import {loadState, saveState} from '../utils/local-storage-utils'
 
 export type StateType = ReturnType<typeof rootReducer>
 
@@ -15,4 +16,8 @@ const rootReducer = combineReducers(
     }
 )
 
-export const store = createStore(rootReducer)
+export const store = createStore(rootReducer, loadState())
+
+store.subscribe(() => {
+    saveState(store.getState())
+})
