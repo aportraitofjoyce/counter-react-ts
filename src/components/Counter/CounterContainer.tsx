@@ -2,14 +2,17 @@ import React, {ChangeEvent, useState} from 'react'
 import {Counter} from './Counter'
 import {useDispatch, useSelector} from 'react-redux'
 import {StateType} from '../../store/store'
-import {counterIncreaseAC, counterResetAC, setNewMinCounterValueAC} from '../../store/actions/counter-actions'
-import {setMaxValueAC, setMinValueAC} from '../../store/actions/counter-values-actions'
+import {
+    counterIncreaseAC,
+    counterResetAC,
+    setNewMinCounterValueAC
+} from '../../store/actions/counter-actions/counter-actions'
+import {setMaxValueAC, setMinValueAC} from '../../store/actions/counter-actions/counter-values-actions'
 
 export const CounterContainer = () => {
-    const [settings, setSettings] = useState(true)
     const {counterValue} = useSelector((state: StateType) => state.counter)
     const {minValue, maxValue} = useSelector((state: StateType) => state.counterValues)
-
+    const [settings, setSettings] = useState(true)
     const dispatch = useDispatch()
 
     const counterIncrease = () => {

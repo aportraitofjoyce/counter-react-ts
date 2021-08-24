@@ -1,15 +1,15 @@
 import {
-    COUNTER_INCREASE,
-    COUNTER_RESET,
-    CounterActionsType,
-    SET_NEW_MIN_COUNTER_VALUE
-} from '../actions/counter-actions'
+    CombinedCounterActionsType,
+    COUNTER_INCREASE, COUNTER_RESET, SET_NEW_MIN_COUNTER_VALUE
+} from '../../actions/combined-counter-actions/combined-counter-actions'
+
+type InitialStateType = typeof initialState
 
 const initialState = {
     counterValue: 0,
 }
 
-export const counterReducer = (state: InitialStateType = initialState, action: CounterActionsType): InitialStateType => {
+export const combinedCounterReducer = (state: InitialStateType = initialState, action: CombinedCounterActionsType): InitialStateType => {
     switch (action.type) {
         case COUNTER_INCREASE:
             return {...state, counterValue: state.counterValue + 1}
@@ -25,6 +25,4 @@ export const counterReducer = (state: InitialStateType = initialState, action: C
             return state
     }
 }
-
-type InitialStateType = typeof initialState
 

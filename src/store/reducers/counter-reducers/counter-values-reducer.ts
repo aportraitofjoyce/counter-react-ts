@@ -1,4 +1,10 @@
-import {CounterValuesActionsType, SET_MAX_VALUE, SET_MIN_VALUE} from '../actions/counter-values-actions'
+import {
+    CounterValuesActionsType,
+    SET_MAX_VALUE,
+    SET_MIN_VALUE
+} from '../../actions/counter-actions/counter-values-actions'
+
+type InitialStateType = typeof initialState
 
 const initialState = {
     minValue: 0,
@@ -17,5 +23,3 @@ export const counterValuesReducer = (state: InitialStateType = initialState, act
             return state
     }
 }
-
-type InitialStateType = typeof initialState
